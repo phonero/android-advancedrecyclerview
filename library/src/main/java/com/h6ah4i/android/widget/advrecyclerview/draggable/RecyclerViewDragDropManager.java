@@ -358,6 +358,9 @@ public class RecyclerViewDragDropManager implements DraggableItemConstants {
 
         mDisplayDensity = mRecyclerView.getResources().getDisplayMetrics().density;
         mTouchSlop = ViewConfiguration.get(mRecyclerView.getContext()).getScaledTouchSlop();
+        if (mTouchSlop > 0) {
+            mTouchSlop--;
+        }
         mScrollTouchSlop = (int) (mTouchSlop * SCROLL_TOUCH_SLOP_MULTIPLY + 0.5f);
         mHandler = new InternalHandler(this);
 
